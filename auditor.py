@@ -5,6 +5,7 @@ import threading
 from signature_verifier import verify_sth
 from urllib.parse import unquote
 import base64
+import requests
 
 def decode_base64(base64_str):
     return base64.b64decode(base64_str)
@@ -69,6 +70,9 @@ class Auditor:
     def validate_inclusion(self, i: int, new_mth: STH):
         try:
             bc_entry = self.get_entry_from_blockchain(i)
+        except requests.exceptions.SSLError:
+            print("too many rpc requests")
+            raise ConnectionError
         except:
             raise KeyError
                     
