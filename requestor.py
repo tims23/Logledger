@@ -10,7 +10,7 @@ from signature_verifier import verify_sct, verify_sth
 
 hash_storage = HashStorage()
 
-BATCH_SIZE = 10
+BATCH_SIZE = 10 #mth signing cannot handle a difference greater than 10 since requests to the oak log are limited
 BLOCK_TIME = 2.19
 SCT_FOLDER = "requestor_scts"
 STH_FOLDER = "requestor_sths"
