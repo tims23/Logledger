@@ -1,7 +1,7 @@
 from CT_interface import SCT, STH
 import requests
 
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = "http://13.51.195.75" #change to local setup if neccesarry
 
 def sign_sct(index: int) -> SCT:
     try:
@@ -11,6 +11,7 @@ def sign_sct(index: int) -> SCT:
     
 def sign_mth(mth: STH, sth = None, consistency_proof = None) -> STH:
     try:
+        #mth["ll_size"] = 600 add this with a value 10 higher than the latest sth if constant failure
         body_json = { "new_mth": mth }
         if sth != None:
             body_json["old_sth"] = sth
