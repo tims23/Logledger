@@ -43,7 +43,7 @@ def load_latest_STH():
         with open(highest_file_path, 'r') as f:
             content = f.read()
         
-        return content
+        return json.loads(content)
     else:
         return None
 
@@ -149,8 +149,7 @@ def sign_mth():
     try:
         old_sth = data["old_sth"]
     except KeyError:
-        json_sth = cache.get("latest_STH")
-        old_sth = json.loads(json_sth)
+        old_sth = cache.get("latest_STH")
    
     new_mth: STH = data["new_mth"]
     new_mth["timestamp"] = int(time.time())

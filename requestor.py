@@ -68,7 +68,7 @@ def request_sth():
 
 if __name__ == "__main__":
     show_stats()
-    #(oldCount, new_count) = submit_certificates()
-    #time.sleep(1.5 * BLOCK_TIME)
-    #request_scts(oldCount, new_count)
+    (oldCount, new_count) = submit_certificates()
+    time.sleep(1.5 * BLOCK_TIME)
+    request_scts(oldCount, new_count)
     request_sth()
