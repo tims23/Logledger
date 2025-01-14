@@ -31,3 +31,31 @@ A class saving the functionalities for the threshold signing in a distributed ne
 
 ## api facilitator & api server
 Api facilitator allows the access to the functionalities over an API. Simulates a real setup where multiple api servers of different signers work together over a network to create a signature for a STH or SCT.
+
+# Deployment
+You can also deploy the implementation locally by running a api facilitator instance and 5 api servers for the signers.
+### API facilitator
+>python3 api_facilitator.py
+### Singer
+The signers take their identity from the configuration file. If you are running all in the same folder you can also overgive the configuration as command line argument.
+>python3 api_server.py <signer_index>
+
+The signers should have the indexes 1-n (n being 5 in the default setup)
+
+## Configuration 
+The deployment takes two configuration files. One for the blockchain:
+>{"PRIVATE_KEY":  "", "ACCOUNT_ADDRESS": "", "NODE_URL": ""}
+
+And one for the signers:
+>{"index": "", "threshold": "", "total_signers": "", "public_key": "", "log_id": "", "key_folder": "", "urls": ""}
+
+Moreover the BASE_URL can be changed in the facilitator interface to connect to the local deployment. 
+
+If another smart contract is used the public key has to be changed in the bc_interface.
+
+## Used external libraries
+
+ - ggmpc
+ - web3
+ - flask
+ - flask_caching
