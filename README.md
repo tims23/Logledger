@@ -36,7 +36,7 @@ Api facilitator allows the access to the functionalities over an API. Simulates 
 You can also deploy the implementation locally by running a api facilitator instance and 5 api servers for the signers.
 ### API facilitator
 >python3 api_facilitator.py
-### Singer
+### Signer
 The signers take their identity from the configuration file. If you are running all in the same folder you can also overgive the configuration as command line argument.
 >python3 api_server.py <signer_index>
 
