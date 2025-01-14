@@ -32,7 +32,9 @@ class Auditor:
     def proof_input(self, old_sth: STH, new_mth: STH, consistency_path) -> bool:
         #Step 1: validate signature
         verifiable_sth = old_sth
-        print("verified signature", verify_sth(verifiable_sth))
+        if not verify_sth(verifiable_sth):
+            return False
+        print("verified signature")
 
         #Step 2: validate consitency
         old_sth["sha256_root_hash"] = decode_base64(old_sth["sha256_root_hash"])
